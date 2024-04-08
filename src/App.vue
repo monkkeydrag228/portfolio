@@ -1,26 +1,60 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Навигационная панель -->
+    <navbar-view />
+
+    <!-- Основное содержимое страницы, включая маршрутизатор и секции -->
+    <router-view />
+
+    <!-- Секция "About Me" -->
+    <about-me-vue ref="aboutMeSection" />
+
+    <!-- Секция "My Projects" -->
+    <my-projects ref="projectsSection" />
+
+    <!-- Секция "Contacts" -->
+    <contacts-view ref="contactsSection" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavbarView from '@/view/NavbarView.vue';
+import AboutMeVue from './view/AboutMe.vue';
+import MyProjects from './view/MyProjects.vue';
+import ContactsView from './view/ContactsView.vue';
 
 export default {
-  name: 'App',
+  methods: {
+    scrollToSection(sectionId) {
+      const sectionElement = this.$refs[sectionId];
+      if (sectionElement && sectionElement.$el) {
+        sectionElement.$el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  },
   components: {
-    HelloWorld
+    NavbarView,
+    AboutMeVue,
+    MyProjects,
+    ContactsView
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  background: no-repeat linear-gradient(135deg, rgba(19, 12, 134, 1) 0%, rgba(92, 92, 255, 1) 50%, rgba(0, 212, 255, 1) 100%);
+  padding: 0 !important;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0 auto;
 }
 </style>
+  d
