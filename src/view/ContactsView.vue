@@ -5,7 +5,7 @@
       <li>
         <a href="https://github.com/monkkeydrag228"
           ><img
-            style="width: 260px; height: 150px"
+            style="width: 260px; height: 149px"
             src="../assets/Remove-bg.ai_1712493821933.png"
             alt=""
         /></a>
